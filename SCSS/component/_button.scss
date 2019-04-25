@@ -1,0 +1,106 @@
+.btn{
+    &,
+    &:link,
+    &:visited{
+    text-decoration: none;
+    font-size: $default-font-size;
+    text-transform: uppercase;
+    padding: 1.5rem 4rem 1.5rem 4rem;
+    border-radius: 2rem;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+
+    // Change for the <button> element
+
+    border:none;
+    cursor: pointer;
+
+    }
+
+    &:hover,
+    &:focus{
+    @include btn-shadow-big;
+
+        &::after{
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+     
+        }
+    }
+
+    &:active{
+        @include btn-shadow-small;
+    }
+
+    &--white{
+    background-color: $color-white;
+    color:$color-grey;
+    margin-top:15rem;
+
+        &::after{
+        background-color: $color-white;
+        }
+    }
+
+    &--green{
+        background-color: $color-primary;
+        color:$color-white;
+    
+            &::after{
+            background-color: $color-primary;
+            }
+        }
+
+    &::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius:10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+
+    }
+
+    &--animated{
+    animation-name: moveInUp;
+    animation-delay: 2.25s;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    }
+
+    &--margin{
+        margin: 2rem 0;
+    
+    }
+
+}
+
+.btn-text{
+    &:link,
+    &:visited{
+        font-size:$default-font-size;
+        color:$color-primary;
+        border-bottom: .2rem solid $color-primary;
+        display:inline-block;
+        text-decoration: none;
+        transition: all .2s;
+        padding: 3px;
+    }
+
+    &:hover{
+        background-color: $color-primary;
+        color: $color-white;
+        @include btn-shadow-big;
+    }
+
+    &:active{
+        @include btn-shadow-small;
+    }
+
+
+}
